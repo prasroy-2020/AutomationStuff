@@ -1,15 +1,14 @@
 #!/usr/bin/env python
-#====================================================================================================================
-# Script name: getJsonfield.py
-#
-# Functionality:A sample script to demonstrate endpoint processing without using requests library.The endpoint takes one input podname
-#               From the Endpoint output the script is fetching a specific field dbcode value 
-# Usage: python getJsonfield.py <podname>
-# Example: python getJsonfield.py xxx
-# Created by: Prasanta Kr Roy
-#
 
-#====================================================================================================================
+'''
+ Script name: getJsonfield.py
+
+ Functionality:A sample script to demonstrate endpoint processing without using requests library.The endpoint takes one input podname
+               From the Endpoint output the script is fetching a specific field dbcode value 
+ Usage: python getJsonfield.py <podname>
+ Example: python getJsonfield.py xxx
+ Created by: Prasanta Kr Roy
+'''
 import os
 import sys
 import urllib2
@@ -25,7 +24,7 @@ class allpodinfo():
                     Fetching the endpoint and the credentials from the config file 
                 '''
                 self.podname = podname  
-		        self.json_field = json_field
+		self.json_field = json_field
                 v_config_ini=os.path.abspath(os.path.join(os.path.dirname(__file__), 'config.ini'))
                 parser = SafeConfigParser()
                 parser.optionxform = str
@@ -56,25 +55,25 @@ class allpodinfo():
                 for _ in range(int(self.no_of_retry)):
 
                     try:
-			            print "Accessing the following  url: %s" %(self.v_derived_url)
-			            pagehandle = urllib2.urlopen(self.v_derived_url)
+			print "Accessing the following  url: %s" %(self.v_derived_url)
+			pagehandle = urllib2.urlopen(self.v_derived_url)
                         results = json.loads(pagehandle.read())
-			            return self.parse_json(results)
+			return self.parse_json(results)
                     except Exception:
                         time.sleep(int(self.time_interval))
                         return "None"
         def parse_json(self,jsondata):
 		    for key,values in jsondata.items():
     			    if isinstance(values, list):
+				    #If the child is an array iterate through the individual elements
       				    for elm in values:
-                            #If the child is an array iterate through the individual elements
-        				    self.parse_json(elm)
+                                    	    self.parse_json(elm)
     			    elif isinstance(values, dict):
-                            #If the child is a dict search through the individual keys
+                            		    #If the child is a dict search through the individual keys
 				            for child_key,child_values in values.items():
       					        if self.json_field in child_key:
         					        return child_values
-			        else:
+			    else:
 				            if self.json_field in key:
         				        return values
 def usage():
@@ -87,7 +86,7 @@ if __name__== '__main__':
                 sys.exit(1)
         try:
             podname = sys.argv[1]
-	        json_field = sys.argv[2]
+	    json_field = sys.argv[2]
             obj_allpodinfo = allpodinfo(podname, json_field)
             v_json_field = obj_allpodinfo.getjsonfield()
             if v_json_field:
