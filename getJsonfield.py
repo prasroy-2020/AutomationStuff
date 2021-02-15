@@ -2,8 +2,8 @@
 #====================================================================================================================
 # Script name: getJsonfield.py
 #
-# Functionality:A sample script to demonstrate endpoint processing without using requests library.The endpoint takes one input podname
-#               From the Endpoint output the script is fetching a specific field dbcode value 
+# Functionality:A sample script to demonstrate endpoint processing without using requests library.The endpoint takes one input podname.
+#               From the Endpoint output the script fetches the value of the specific field provided by the user 
 # Usage: python getJsonfield.py <podname>
 # Example: python getJsonfield.py xxx
 # Created by: Prasanta Kr Roy
