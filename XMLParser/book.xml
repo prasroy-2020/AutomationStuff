@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CATALOG>
+	<CD>
+		<TITLE>Head first Javascript</TITLE>
+		<AUTHOR>Eric Freeman</AUTHOR>
+		<TECH>Javascript</TECH>
+		<PUBLISHER>O'Reilly Media</PUBLISHER>
+		<PRICE>10.90</PRICE>
+		<YEAR>2001</YEAR>
+	</CD>
+	<CD>
+		<TITLE>Head first python</TITLE>
+		<AUTHOR>Paul Barry </AUTHOR>
+		<TECH>Python</TECH>
+		<PUBLISHER>O'Reilly Media</PUBLISHER>
+		<PRICE>20</PRICE>
+		<YEAR>2003</YEAR>
+	</CD>
+	<CD>
+		<TITLE>Python Tricks: A Buffet of Awesome Python Features</TITLE>
+		<AUTHOR>Dan Badder</AUTHOR>
+		<TECH>Python</TECH>
+		<PUBLISHER>Dan Bader</PUBLISHER>
+		<PRICE>30</PRICE>
+		<YEAR>2005</YEAR>
+	</CD>
+  </CATALOG>
